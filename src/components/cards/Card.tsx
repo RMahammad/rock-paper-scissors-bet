@@ -8,6 +8,7 @@ const Card = ({
   borderColor,
   handleBet,
   bets,
+  status,
 }: ICard) => {
   return (
     <div
@@ -15,7 +16,7 @@ const Card = ({
         bets[keyword] > 0 ? "justify-between" : "justify-end"
       } py-5 cursor-pointer`}
       onClick={() => {
-        handleBet(keyword);
+        if (!status) handleBet(keyword);
       }}
     >
       {bets[keyword] > 0 && (

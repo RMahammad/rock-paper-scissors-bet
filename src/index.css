@@ -9,4 +9,15 @@
   --color-paper-bg: oklch(30.91% 0.0597 146.1);
   --color-scissors-text: oklch(58.39% 0.226 18.98);
   --color-scissors-bg: oklch(28.43% 0.1015 10.19);
+
+  --animate-slot-spin: slot-spin 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+
+  @keyframes slot-spin {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 }

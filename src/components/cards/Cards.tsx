@@ -2,7 +2,7 @@ import { gameChoices } from "../../constants";
 import Card from "./Card";
 import { ICards } from "../../types/game";
 
-const Cards = ({ handleBet, bets }: ICards) => {
+const Cards = ({ handleBet, bets, status }: ICards) => {
   return (
     <div className="flex items-center justify-center gap-5">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -16,6 +16,7 @@ const Cards = ({ handleBet, bets }: ICards) => {
               borderColor={item.borderColor}
               handleBet={handleBet}
               bets={bets}
+              status={status}
             />
           </div>
         ))}

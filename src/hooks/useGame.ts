@@ -3,8 +3,8 @@ import { RootState, AppDispatch } from "../store";
 import {
   placeBet,
   setComputerChoice,
-  calculateOutcome,
   resetGame,
+  calculateOutcomeAsync,
 } from "../store/slices/gameSlice";
 import { Choice } from "../types/game";
 
@@ -22,7 +22,7 @@ export const useGame = () => {
     const choices: Choice[] = ["rock", "paper", "scissors"];
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
     dispatch(setComputerChoice(randomChoice));
-    dispatch(calculateOutcome());
+    dispatch(calculateOutcomeAsync());
   };
 
   const handleReset = () => {

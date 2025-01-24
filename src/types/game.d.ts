@@ -9,16 +9,26 @@ export interface GameChoices {
 export interface ICard extends GameChoices {
   bets: Bet;
   handleBet: (keyword: Choice) => void;
+  status: Status;
 }
 
 interface ICards {
   handleBet: (keyword: Choice) => void;
   bets: Bet;
+  status: Status;
 }
 
 interface IPlayButton {
-  handlePlay: () => void;
+  handleClick: () => void;
   title: string;
+  isLoading: boolean;
+}
+
+interface IGameResult {
+  computerChoice: Choice;
+  yourChoice: Choice[];
+  isLoading: boolean;
+  status: Status;
 }
 
 export type Choice = "rock" | "paper" | "scissors";
@@ -33,9 +43,11 @@ export interface GameState {
   balance: number;
   bets: Bet;
   computerChoice: Choice | null;
+  yourChoice: Choice[];
   outcome: number;
   status: Status;
   winningAmount: number;
+  isLoading: boolean;
 }
 
 export type Status = "won" | "lost" | "tie" | null;
