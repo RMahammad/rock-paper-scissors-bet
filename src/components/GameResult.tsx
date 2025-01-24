@@ -22,25 +22,27 @@ const GameResult = ({
   }, [isLoading]);
 
   return (
-    <div className="flex items-end justify-center gap-16 text-center">
+    <div className="flex flex-col md:flex-row md:items-end justify-center gap-5 md:gap-16 text-center">
       {isLoading ? (
         <SlotMachineEffect
           words={["Rock", "Paper", "Scissors"]}
           duration={3000}
         />
       ) : (
-        <p className="text-6xl text-white font-bold uppercase">
+        <p className="text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase">
           {computerChoice}
         </p>
       )}
 
-      <p className="text-3xl text-primary font-bold">VS</p>
+      <p className="text-xl md:text-xl lg:text-3xl text-primary font-bold">
+        VS
+      </p>
 
       {yourChoice.length > 1 ? (
         <div className="relative">
           {!showFinalValue && (
             <p
-              className={`text-6xl text-white font-bold uppercase transition-opacity duration-500 ease-in-out ${
+              className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase transition-opacity duration-500 ease-in-out ${
                 isLoading ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -50,7 +52,7 @@ const GameResult = ({
 
           {showFinalValue && (
             <p
-              className={`text-6xl text-white font-bold uppercase transition-opacity duration-1000 ease-in-out ${
+              className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase transition-opacity duration-1000 ease-in-out ${
                 showFinalValue ? "opacity-100" : "opacity-0"
               }`}
             >
@@ -63,7 +65,9 @@ const GameResult = ({
           )}
         </div>
       ) : (
-        <p className={`text-6xl text-white font-bold uppercase`}>
+        <p
+          className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase`}
+        >
           {yourChoice.join(" and ")}
         </p>
       )}

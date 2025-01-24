@@ -9,14 +9,16 @@ const Card = ({
   handleBet,
   bets,
   status,
+  isLoading,
 }: ICard) => {
+  console.log("This is status: ", status);
   return (
     <div
       className={`${bgColor} border ${borderColor} w-52 h-40 rounded-lg border-2 flex flex-col items-center ${
         bets[keyword] > 0 ? "justify-between" : "justify-end"
       } py-5 cursor-pointer`}
       onClick={() => {
-        if (!status) handleBet(keyword);
+        if (!status && !isLoading) handleBet(keyword);
       }}
     >
       {bets[keyword] > 0 && (

@@ -7,7 +7,6 @@ const Game = () => {
   const { gameState, handleBet, handlePlay, handleReset } = useGame();
   const { bets, status, computerChoice, yourChoice, isLoading } = gameState;
 
-
   return (
     <div className="flex flex-col items-center justify-center gap-10">
       {computerChoice && (
@@ -23,7 +22,12 @@ const Game = () => {
         <p className="text-primary">PICK YOUR POSITIONS</p>
 
         <div className="">
-          <Cards status={status} handleBet={handleBet} bets={bets} />
+          <Cards
+            status={status}
+            handleBet={handleBet}
+            bets={bets}
+            isLoading={isLoading}
+          />
         </div>
       </div>
 
