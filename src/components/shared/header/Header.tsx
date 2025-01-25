@@ -1,5 +1,5 @@
 import { useGame } from "../../../hooks/useGame";
-import "./Header.css"; // Import the CSS file
+import "./Header.css";
 
 const Header = () => {
   const { gameState } = useGame();

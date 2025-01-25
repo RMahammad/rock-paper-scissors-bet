@@ -1,4 +1,3 @@
-import React from "react";
 import { ICard } from "../../../types/game";
 import "./Card.css";
 
