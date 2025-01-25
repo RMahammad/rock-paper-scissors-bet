@@ -26,21 +26,14 @@ const GameResult = ({
   }, [isLoading]);
 
   useEffect(() => {
-    if (status) {
-      let timeoutId;
-      if (yourChoice.length > 1) {
-        timeoutId = setTimeout(() => {
-          setShowWinner(true);
-        }, 1500);
-      } else {
-        timeoutId = setTimeout(() => {
-          setShowWinner(true);
-        }, 1000);
-      }
+    if (showFinalValue) {
+      const timeoutId = setTimeout(() => {
+        setShowWinner(true);
+      }, 500);
 
       return () => clearTimeout(timeoutId);
     }
-  }, [status]);
+  }, [showFinalValue]);
 
   return (
     <div>
