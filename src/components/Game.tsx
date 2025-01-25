@@ -5,20 +5,22 @@ import GameResult from "./GameResult";
 
 const Game = () => {
   const { gameState, handleBet, handlePlay, handleReset } = useGame();
-  const { bets, status, computerChoice, yourChoice, isLoading } = gameState;
+  const { bets, status, computerChoice, yourChoice, isLoading, winningAmount } =
+    gameState;
 
   return (
-    <div className="flex flex-col items-center justify-center gap-10">
+    <div className={`flex flex-col items-center justify-center gap-10`}>
       {computerChoice && (
         <GameResult
           computerChoice={computerChoice}
           yourChoice={yourChoice}
           isLoading={isLoading}
           status={status}
+          winningAmount={winningAmount}
         />
       )}
 
-      <div className="flex flex-col gap-10 justify-center items-center">
+      <div className="flex flex-col gap-10 justify-center items-center mt-20">
         <p className="text-primary">PICK YOUR POSITIONS</p>
 
         <div className="">

@@ -31,6 +31,7 @@ interface IGameResult {
   yourChoice: Choice[];
   isLoading: boolean;
   status: Status;
+  winningAmount: number;
 }
 
 export type Choice = "rock" | "paper" | "scissors";
