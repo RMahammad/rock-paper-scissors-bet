@@ -1,8 +1,9 @@
-import "./game.css";
 import Cards from "./cards/Cards";
 import { useGame } from "../hooks/useGame";
 import GameResult from "./GameResult";
 import CustomButton from "./shared/custom-button/CustomButton";
+import "./game.css";
+
 
 const Game = () => {
   const { gameState, handleBet, handlePlay, handleReset } = useGame();

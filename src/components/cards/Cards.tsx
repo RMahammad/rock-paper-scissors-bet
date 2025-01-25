@@ -1,7 +1,7 @@
 import { gameChoices } from "../../constants";
 import Card from "./card/Card";
 import { ICards } from "../../types/game";
-import "./Cards.css";
+import "./cards.css";
 
 const Cards = ({ handleBet, bets, status, isLoading }: ICards) => {
   return (

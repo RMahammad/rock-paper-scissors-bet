@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./SlotMachineEffect.css";
+import "./slotMachineEffect.css";
 
 type SlotMachineProps = {
   words: string[];

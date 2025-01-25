@@ -1,5 +1,5 @@
 import { ICard } from "../../../types/game";
-import "./Card.css";
+import "./card.css";
 
 const Card = ({
   title,
