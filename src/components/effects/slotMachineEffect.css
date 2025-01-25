@@ -1,0 +1,50 @@
+.slot-machine-container {
+  position: relative;
+  height: 4rem;
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slot-machine-words {
+  position: absolute;
+  top: 0;
+}
+
+.slot-machine-word {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .slot-machine-word {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slot-machine-word {
+    font-size: 3.75rem;
+  }
+}
+
+@keyframes slot-spin {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-slot-spin {
+  animation: slot-spin 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}

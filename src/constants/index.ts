@@ -4,23 +4,23 @@ export const gameChoices: GameChoices[] = [
   {
     title: "Rock",
     keyword: "rock",
-    bgColor: "bg-rock-bg",
-    titleColor: "text-rock-text",
-    borderColor: "border-rock-text",
+    bgColor: "#211f4f",
+    titleColor: "#2680ea",
+    borderColor: "#2680ea",
   },
   {
     title: "Paper",
     keyword: "paper",
-    bgColor: "bg-paper-bg",
-    titleColor: "text-paper-text",
-    borderColor: "border-paper-text",
+    bgColor: "#1a381d",
+    titleColor: "#17bf57",
+    borderColor: "#17bf57",
   },
   {
     title: "Scissors",
     keyword: "scissors",
-    bgColor: "bg-scissors-bg",
-    titleColor: "text-scissors-text",
-    borderColor: "border-scissors-text",
+    bgColor: "#50091e",
+    titleColor: "#e21642",
+    borderColor: "#e21642",
   },
 ];
 

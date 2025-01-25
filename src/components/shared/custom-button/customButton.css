@@ -1,0 +1,17 @@
+.play-button {
+  border-radius: 9999px;
+  background-color: black;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 1.25rem 3.5rem;
+  font-size: 1.875rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.play-button.loading {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

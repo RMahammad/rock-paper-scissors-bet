@@ -1,7 +1,8 @@
+import "./game.css";
 import Cards from "./cards/Cards";
-import PlayButton from "./shared/PlayButton";
 import { useGame } from "../hooks/useGame";
 import GameResult from "./GameResult";
+import CustomButton from "./shared/custom-button/CustomButton";
 
 const Game = () => {
   const { gameState, handleBet, handlePlay, handleReset } = useGame();
@@ -9,21 +10,25 @@ const Game = () => {
     gameState;
 
   return (
-    <div className={`flex flex-col items-center justify-center gap-10`}>
-      {computerChoice && (
-        <GameResult
-          computerChoice={computerChoice}
-          yourChoice={yourChoice}
-          isLoading={isLoading}
-          status={status}
-          winningAmount={winningAmount}
-        />
-      )}
+    <div className="game-container">
+      <div className="result-container">
+        {computerChoice && (
+          <GameResult
+            computerChoice={computerChoice}
+            yourChoice={yourChoice}
+            isLoading={isLoading}
+            status={status}
+            winningAmount={winningAmount}
+          />
+        )}
+      </div>
 
-      <div className="flex flex-col gap-10 justify-center items-center mt-20">
-        <p className="text-primary">PICK YOUR POSITIONS</p>
+      <div className="pick-section">
+        {Object.values(bets).every((e) => e === 0) && (
+          <p className="pick-title">PICK YOUR POSITIONS</p>
+        )}
 
-        <div className="">
+        <div className="cards-container">
           <Cards
             status={status}
             handleBet={handleBet}
@@ -33,15 +38,15 @@ const Game = () => {
         </div>
       </div>
 
-      <div>
+      <div className="button-container">
         {computerChoice && status ? (
-          <PlayButton
+          <CustomButton
             isLoading={isLoading}
             handleClick={handleReset}
             title="Clear"
           />
         ) : (
-          <PlayButton
+          <CustomButton
             isLoading={isLoading}
             handleClick={handlePlay}
             title="Play"

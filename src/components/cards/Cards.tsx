@@ -1,11 +1,12 @@
 import { gameChoices } from "../../constants";
-import Card from "./Card";
+import Card from "./card/Card";
 import { ICards } from "../../types/game";
+import "./Cards.css";
 
 const Cards = ({ handleBet, bets, status, isLoading }: ICards) => {
   return (
-    <div className="flex items-center justify-center gap-5">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div className="cards-container">
+      <div className="cards-grid">
         {gameChoices.map((item) => (
           <div key={item.keyword}>
             <Card

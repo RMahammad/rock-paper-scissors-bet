@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { loseConditions } from "../constants";
 import SlotMachineEffect from "./effects/SlotMachineEffect";
 import { IGameResult } from "../types/game";
+import "./gameResult.css";
 
 const GameResult = ({
   computerChoice,
@@ -12,8 +13,6 @@ const GameResult = ({
 }: IGameResult) => {
   const [showFinalValue, setShowFinalValue] = useState(false);
   const [showWinner, setShowWinner] = useState(false);
-
-  console.log(status);
 
   useEffect(() => {
     if (!isLoading) {
@@ -36,30 +35,26 @@ const GameResult = ({
   }, [showFinalValue]);
 
   return (
-    <div>
+    <div className="game-result-container">
       {!showWinner ? (
-        <div className="flex flex-col md:flex-row md:items-end justify-center gap-5 md:gap-16 text-center">
+        <div className="game-result-content">
           {isLoading ? (
             <SlotMachineEffect
               words={["Rock", "Paper", "Scissors"]}
               duration={3000}
             />
           ) : (
-            <p className="text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase">
-              {computerChoice}
-            </p>
+            <p className="computer-choice">{computerChoice}</p>
           )}
 
-          <p className="text-xl md:text-xl lg:text-3xl text-primary font-bold">
-            VS
-          </p>
+          <p className="vs-text">VS</p>
 
           {yourChoice.length > 1 ? (
             <div className="relative">
               {!showFinalValue && (
                 <p
-                  className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase transition-opacity duration-500 ease-in-out ${
-                    isLoading ? "opacity-100" : "opacity-0"
+                  className={`your-choice ${
+                    isLoading ? "fade-in" : "fade-out"
                   }`}
                 >
                   {yourChoice.join(" and ")}
@@ -68,8 +63,8 @@ const GameResult = ({
 
               {showFinalValue && (
                 <p
-                  className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase transition-opacity duration-1000 ease-in-out ${
-                    showFinalValue ? "opacity-100" : "opacity-0"
+                  className={`your-choice  ${
+                    showFinalValue ? "fade-in" : "fade-out"
                   }`}
                 >
                   {status === "won"
@@ -81,40 +76,32 @@ const GameResult = ({
               )}
             </div>
           ) : (
-            <p
-              className={`text-5xl md:text-3xl lg:text-6xl text-white font-bold uppercase`}
-            >
-              {yourChoice.join(" and ")}
-            </p>
+            <p className="your-choice">{yourChoice.join(" and ")}</p>
           )}
         </div>
       ) : (
         <div>
           {status === "won" ? (
-            <div className="flex flex-col items-center justify-center text-center gap-5">
-              <p className="text-5xl md:text-6xl font-bold uppercase text-green-500">
+            <div className="winner-container">
+              <p className="winner-status winner-status-won">
                 {loseConditions[computerChoice]} {status.toUpperCase()}
               </p>
-
-              <p className="text-xl lg:text-2xl font-semibold uppercase text-primary">
-                YOU WIN <span className="text-white">{winningAmount}.00</span>
+              <p className="winner-amount">
+                YOU WIN <span>{winningAmount}.00</span>
               </p>
             </div>
           ) : status === "tie" ? (
-            <div className="flex flex-col items-center justify-center text-center gap-5">
-              <p className="text-5xl md:text-6xl font-bold uppercase text-orange-400">
+            <div className="winner-container">
+              <p className="winner-status winner-status-tie">
                 {computerChoice} {status.toUpperCase()}
               </p>
-
-              <p className="text-xl lg:text-2xl font-semibold uppercase text-primary">
-                YOU WIN <span className="text-white">{winningAmount}.00</span>
+              <p className="winner-amount">
+                YOU WIN <span>{winningAmount}.00</span>
               </p>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center text-center gap-5">
-              <p className="text-5xl md:text-6xl font-bold uppercase text-red-500">
-                YOU LOST
-              </p>
+            <div className="winner-container">
+              <p className="winner-status winner-status-lost">YOU LOST</p>
             </div>
           )}
         </div>
