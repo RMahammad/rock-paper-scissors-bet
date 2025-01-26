@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/shared/header/Header";
+import Header from "../shared/header/Header";
 
 interface ILayout {
   children: React.ReactNode;
