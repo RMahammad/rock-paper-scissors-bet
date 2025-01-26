@@ -3,7 +3,7 @@ import Card from "./card/Card";
 import { ICards } from "../../types/game";
 import "./cards.css";
 
-const Cards = ({ handleBet, bets, status, isLoading }: ICards) => {
+const Cards = ({ handleBet, handleBetReduce, bets, status, isLoading }: ICards) => {
   return (
     <div className="cards-container">
       <div className="cards-grid">
@@ -16,6 +16,7 @@ const Cards = ({ handleBet, bets, status, isLoading }: ICards) => {
               keyword={item.keyword}
               borderColor={item.borderColor}
               handleBet={handleBet}
+              handleBetReduce={handleBetReduce}
               bets={bets}
               status={status}
               isLoading={isLoading}

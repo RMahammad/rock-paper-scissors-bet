@@ -26,3 +26,10 @@
   color: var(--color-secondary);
   font-weight: 400;
 }
+
+@media (max-width: 767px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}

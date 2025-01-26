@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { loseConditions } from "../constants";
-import SlotMachineEffect from "./effects/SlotMachineEffect";
-import { IGameResult } from "../types/game";
+import { loseConditions } from "../../constants";
+import SlotMachineEffect from "../effects/SlotMachineEffect";
+import { IGameResult } from "../../types/game";
 import "./gameResult.css";
 
 const GameResult = ({

@@ -1,22 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap");
 
 :root {
-  /* Colors */
   --color-primary: oklch(74.45% 0.0735 78.16);
   --color-secondary: oklch(100% 0 0);
 
-  /* Animation */
   --animate-slot-spin: slot-spin 5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-}
-
-/* Keyframes */
-@keyframes slot-spin {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100%);
-  }
 }
 
 body {
@@ -27,7 +15,7 @@ body {
 
 .app-background {
   background: linear-gradient(to bottom, #474747, #1d1d1d);
-  height: calc(100dvh - 59.5px);
+  min-height: calc(100dvh - 59.5px);
 }
 
 .app-container {

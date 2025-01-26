@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { ICard } from "../../../types/game";
 import "./card.css";
 
@@ -8,14 +9,31 @@ const Card = ({
   bgColor,
   borderColor,
   handleBet,
+  handleBetReduce,
   bets,
   status,
   isLoading,
 }: ICard) => {
-  console.log("This is status: ", status);
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  // Handle outside click to hide the icons
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
+        setIsHovered(false); // Hide the icons if the click is outside the card
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div
+      ref={cardRef}
       className={`card ${
         bets[keyword] > 0 ? "card--justify-between" : "card--justify-end"
       }`}
@@ -24,7 +42,7 @@ const Card = ({
         borderColor: borderColor,
       }}
       onClick={() => {
-        if (!status && !isLoading) handleBet(keyword);
+        if (!status && !isLoading) setIsHovered(true);
       }}
     >
       {bets[keyword] > 0 && (
@@ -39,6 +57,27 @@ const Card = ({
       >
         {title}
       </p>
+
+      {isHovered && (
+        <div className="card__icons">
+          <button
+            onClick={() => {
+              if (!status && !isLoading) handleBet(keyword);
+            }}
+            className="card__icon card__icon--plus"
+          >
+            +
+          </button>
+          <button
+            onClick={() => {
+              if (!status && !isLoading) handleBetReduce(keyword);
+            }}
+            className="card__icon card__icon--minus"
+          >
+            -
+          </button>
+        </div>
+      )}
     </div>
   );
 };

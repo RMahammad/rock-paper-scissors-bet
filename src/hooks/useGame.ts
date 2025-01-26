@@ -5,6 +5,7 @@ import {
   setComputerChoice,
   resetGame,
   calculateOutcomeAsync,
+  reduceBet,
 } from "../store/slices/gameSlice";
 import { Choice } from "../types/game";
 
@@ -15,6 +16,12 @@ export const useGame = () => {
   const handleBet = (position: Choice) => {
     if (gameState.balance >= 500) {
       dispatch(placeBet({ position, amount: 500 }));
+    }
+  };
+
+  const handleBetReduce = (position: Choice) => {
+    if (gameState.bets[position] >= 500) {
+      dispatch(reduceBet({ position, amount: 500 }));
     }
   };
 
@@ -32,6 +39,7 @@ export const useGame = () => {
   return {
     gameState,
     handleBet,
+    handleBetReduce,
     handlePlay,
     handleReset,
   };

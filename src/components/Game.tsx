@@ -1,12 +1,12 @@
 import Cards from "./cards/Cards";
 import { useGame } from "../hooks/useGame";
-import GameResult from "./GameResult";
+import GameResult from "./result/GameResult";
 import CustomButton from "./shared/custom-button/CustomButton";
 import "./game.css";
 
-
 const Game = () => {
-  const { gameState, handleBet, handlePlay, handleReset } = useGame();
+  const { gameState, handleBet, handleBetReduce, handlePlay, handleReset } =
+    useGame();
   const { bets, status, computerChoice, yourChoice, isLoading, winningAmount } =
     gameState;
 
@@ -33,6 +33,7 @@ const Game = () => {
           <Cards
             status={status}
             handleBet={handleBet}
+            handleBetReduce={handleBetReduce}
             bets={bets}
             isLoading={isLoading}
           />

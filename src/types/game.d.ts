@@ -9,12 +9,14 @@ export interface GameChoices {
 export interface ICard extends GameChoices {
   bets: Bet;
   handleBet: (keyword: Choice) => void;
+  handleBetReduce: (keyword: Choice) => void;
   status: Status;
   isLoading: boolean;
 }
 
 interface ICards {
   handleBet: (keyword: Choice) => void;
+  handleBetReduce: (keyword: Choice) => void;
   bets: Bet;
   status: Status;
   isLoading: boolean;

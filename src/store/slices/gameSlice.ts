@@ -60,6 +60,17 @@ const gameSlice = createSlice({
         state.balance -= amount;
       }
     },
+    reduceBet: (
+      state,
+      action: PayloadAction<{ position: Choice; amount: number }>
+    ) => {
+      const { position, amount } = action.payload;
+
+      if (state.bets[position] >= amount) {
+        state.bets[position] -= amount;
+        state.balance += amount;
+      }
+    },
     setComputerChoice(state, action: PayloadAction<Choice>) {
       const activeBets = Object.entries(state.bets).filter(
         ([, amount]) => amount > 0
@@ -109,6 +120,7 @@ const gameSlice = createSlice({
   },
 });
 
-export const { placeBet, setComputerChoice, resetGame } = gameSlice.actions;
+export const { placeBet, reduceBet, setComputerChoice, resetGame } =
+  gameSlice.actions;
 
 export default gameSlice.reducer;
