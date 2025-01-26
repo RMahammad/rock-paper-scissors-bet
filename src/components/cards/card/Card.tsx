@@ -17,11 +17,10 @@ const Card = ({
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Handle outside click to hide the icons
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-        setIsHovered(false); // Hide the icons if the click is outside the card
+        setIsHovered(false);
       }
     };
 
@@ -42,7 +41,7 @@ const Card = ({
         borderColor: borderColor,
       }}
       onClick={() => {
-        if (!status && !isLoading) setIsHovered(true);
+        if (!status && !isLoading) handleBet(keyword); // Change handleBet to setIsHovered(true) to see add and reduce bet button
       }}
     >
       {bets[keyword] > 0 && (
@@ -58,6 +57,7 @@ const Card = ({
         {title}
       </p>
 
+      {/* You can achieve add and reduce bet button by changing handleBet to setIsHovered(true) :) */}
       {isHovered && (
         <div className="card__icons">
           <button
