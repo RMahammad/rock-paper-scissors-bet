@@ -80,7 +80,7 @@ const GameResult = ({
           )}
         </div>
       ) : (
-        <div>
+        <div className="">
           {status === "won" ? (
             <div className="winner-container">
               <p className="winner-status winner-status-won">

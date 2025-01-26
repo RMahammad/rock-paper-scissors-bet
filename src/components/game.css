@@ -4,11 +4,11 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 40px 0;
+  padding: 100px 0;
 }
 
 .result-container {
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 .pick-section {
@@ -39,7 +39,11 @@
 }
 
 @media (max-width: 767px) {
-.result-container{
+  .game-container {
+    padding: 30px 0;
+  }
+
+  .result-container {
     margin-bottom: 30px;
-}
+  }
 }
